@@ -35,7 +35,7 @@ Windows: 从 [FFmpeg Builds](https://www.gyan.dev/ffmpeg/builds/) 下载并加�
 
 ## ⚙️ 脚本参数
 ```
-usage: generate_cue_from_flac_midpoint.py [-h] [--silence-thresh SILENCE_THRESH]
+usage: generate_cue_from_flac.py [-h] [--silence-thresh SILENCE_THRESH]
                                           [--min-silence-len MIN_SILENCE_LEN]
                                           [--step-ms STEP_MS]
                                           [--min-tail-gap MIN_TAIL_GAP]
@@ -60,19 +60,19 @@ usage: generate_cue_from_flac_midpoint.py [-h] [--silence-thresh SILENCE_THRESH]
 
 生成默认参数的 `.cue`：
 ```
-python generate_cue_from_flac_midpoint.py "album.flac"
+python generate_cue_from_flac.py "album.flac"
 ```
 
 指定静音阈值 -45 dB、最小静音长度 1500 ms：
 ```
-python generate_cue_from_flac_midpoint.py "album.flac" \
+python generate_cue_from_flac.py "album.flac" \
   --silence-thresh -45 \
   --min-silence-len 1500
 ```
 
 更高精度分析（10ms 步长）并忽略距离结尾 3 秒内的分轨点：
 ```
-python generate_cue_from_flac_midpoint.py "album.flac" \
+python generate_cue_from_flac.py "album.flac" \
   --step-ms 10 \
   --min-tail-gap 3
 ```
