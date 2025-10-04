@@ -11,7 +11,7 @@ def sec_to_mmssff(seconds: float) -> str:
     frames = total_frames % 75
     return f"{minutes:02d}:{seconds_part:02d}:{frames:02d}"
 
-def detect_silence_midpoints(audio, silence_thresh=-40, min_silence_len=1000, step_ms=20):
+def detect_silence_midpoints(audio, silence_thresh=-60, min_silence_len=1000, step_ms=20):
     """检测静音并取中点"""
     total_ms = len(audio)
     silent_ranges = []
@@ -39,7 +39,7 @@ def detect_silence_midpoints(audio, silence_thresh=-40, min_silence_len=1000, st
 
     return silent_ranges
 
-def generate_cue(flac_path, silence_thresh=-40, min_silence_len=1000, step_ms=20, min_tail_gap=5):
+def generate_cue(flac_path, silence_thresh=-60, min_silence_len=1000, step_ms=20, min_tail_gap=5):
     print(f"🎵 Loading {flac_path} ...")
     audio = AudioSegment.from_file(flac_path, format="flac")
     total_length = len(audio) / 1000.0  # 秒
@@ -79,8 +79,8 @@ def generate_cue(flac_path, silence_thresh=-40, min_silence_len=1000, step_ms=20
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate CUE from FLAC by detecting silence midpoints (with progress).")
     parser.add_argument("flac_path", help="Path to the FLAC file.")
-    parser.add_argument("--silence-thresh", type=float, default=-40,
-                        help="Silence threshold in dBFS (default -40).")
+    parser.add_argument("--silence-thresh", type=float, default=-60,
+                        help="Silence threshold in dBFS (default -60).")
     parser.add_argument("--min-silence-len", type=int, default=1000,
                         help="Minimum silence length in ms (default 1000).")
     parser.add_argument("--step-ms", type=int, default=20,
