@@ -25,7 +25,7 @@ Windows: 从 [FFmpeg Builds](https://www.gyan.dev/ffmpeg/builds/) 下载并加�
 ## 🧩 设计思路
 
 1. 遍历整轨 FLAC，逐步检测音量（默认步长 20ms）
-2. 判断连续音量低于 -40 dBFS 且持续时间 ≥ 1000 ms 的区间为「静音」
+2. 判断连续音量低于 -60 dBFS 且持续时间 ≥ 1000 ms 的区间为「静音」
 3. 取静音区间的 中点 作为分轨点
 4. 特殊处理：
    - 第一个分轨点固定为 0s
@@ -45,7 +45,7 @@ usage: generate_cue_from_flac.py [-h] [--silence-thresh SILENCE_THRESH]
 - `flac_path`
    输入的 FLAC 文件路径
   
-- `--silence-thresh` (默认 `-40`)
+- `--silence-thresh` (默认 `-60`)
    静音判定的阈值（单位 dBFS）
 
 - `--min-silence-len` (默认 `1000`)
