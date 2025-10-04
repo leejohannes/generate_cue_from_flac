@@ -41,20 +41,21 @@ usage: generate_cue_from_flac.py [-h] [--silence-thresh SILENCE_THRESH]
                                           [--min-tail-gap MIN_TAIL_GAP]
                                           flac_path
 ```
-`flac_path`
-输入的 FLAC 文件路径
 
-`--silence-thresh` (默认 `-40`)
-静音判定的阈值（单位 dBFS）
+- `flac_path`
+   输入的 FLAC 文件路径
+  
+- `--silence-thresh` (默认 `-40`)
+   静音判定的阈值（单位 dBFS）
 
-`--min-silence-len` (默认 `1000`)
-最小静音长度（单位 ms），低于阈值并持续该时间才算静音
+- `--min-silence-len` (默认 `1000`)
+   最小静音长度（单位 ms），低于阈值并持续该时间才算静音
 
-`--step-ms` (默认 `20`)
-分析步长（单位 ms），越小越精细，但分析速度越慢
-
-`--min-tail-gap` (默认 `5`)
-若最后一个静音点距离文件尾 ≤ 此值（秒），则忽略该分轨点
+- `--step-ms` (默认 `20`)
+   分析步长（单位 ms），越小越精细，但分析速度越慢
+  
+- `--min-tail-gap` (默认 `5`)
+   若最后一个静音点距离文件尾 ≤ 此值（秒），则忽略该分轨点
 
 ## ▶️ 使用示例
 
